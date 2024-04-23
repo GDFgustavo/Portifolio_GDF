@@ -1,0 +1,387 @@
+@use 'config/base';
+@use 'config/variaveis';
+
+body {
+    background-color: variaveis.$corPrincipal;
+}
+
+nav {
+    justify-content: center;
+    display: flex;
+    padding: 24px;
+
+    .nav__links {
+        list-style: none;
+        display: flex;
+        gap: 3em;
+
+        .__link a {
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            padding: 8px;
+            color: variaveis.$corText;
+        }
+
+        .__link a::after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 0;
+            bottom: 0;
+            left: 0;
+            background-color: variaveis.$corSecundaria;
+            transition: all 0.3s ease;
+        }
+
+        .__link a:hover::after {
+            width: 100%;
+        }
+    }
+}
+
+.container-apresentacao {
+    display: flex;
+
+    .apresentacao {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
+        &__titulo {
+            margin-bottom: 48px;
+    
+            h1, h4 {
+                color: variaveis.$corText;
+            }
+    
+            h2{
+                color: darken(variaveis.$corText, 20%)
+            }
+    
+            span {
+                color: variaveis.$corSecundaria;
+            }
+        }
+    
+        .apresentacao__links{
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            list-style: none;
+            
+            a {
+                width: 100%;
+                text-align: center;
+                padding: 8px;
+                font-size: 16px;
+                border-radius: 5px;
+                color: variaveis.$corText;
+    
+            }
+            .__linkedin {
+                background-color: variaveis.$corSecundaria;
+            }
+            
+            .__github {
+                border: 2px solid variaveis.$corSecundaria;
+                color: variaveis.$corSecundaria;
+    
+                &:hover {
+                    background-color: variaveis.$corSecundaria;
+                    color: variaveis.$corText;
+                    transition: all 0.3s;
+                }
+            }
+        }
+    }
+}
+
+.profile {
+    box-shadow: 2px 2px 16px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: lighten(variaveis.$corPrincipal, 10%);
+    display: flex;
+    margin-top: 96px;
+    padding: 16px;
+    transition: all 0.5s ease;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    li, p, h1 {
+        color: variaveis.$corText;
+    }
+
+    .profile__network {
+        box-shadow: 2px 2px 16px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 8px;
+    
+        .profile__avatar {
+            margin: 0px 56px 8px;
+            max-width: 200px;
+            border-radius: 50%;
+            border: 2.5px solid variaveis.$corSecundaria;
+        }
+
+        .social__links {
+            list-style: none;
+            justify-content: center;
+            display: flex;
+            padding-top: 32px;
+
+            li {
+                border: 2px solid variaveis.$corSecundaria;
+                border-radius: 5px;
+                margin: 8px;
+                padding: 8px;
+            }
+        }
+    }
+
+    .profile__container {
+        padding: 32px;
+
+        h2 {
+            padding-bottom: 16px;
+            color: variaveis.$corSecundaria;
+        }
+    }
+
+    .profile__about {
+        max-width: 700px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 32px;
+    }
+
+    .profile__skills {
+        display: grid;
+        grid-template-columns: 300px 300px;
+        column-gap: 1%;
+
+        ul {
+            list-style: none;
+
+            li {
+                font-size: 16px;
+                padding: 5px;
+            }
+        }
+    }
+}
+
+
+.projects {
+    margin-top: 30px;
+
+    p, h1 {
+        color: variaveis.$corText;
+    }
+    
+    .projects__logo {
+        list-style-type: none;
+        display: flex;
+        gap: 24px;
+
+        .projects__img {
+            width: 100%;
+            max-width: 300px;
+            height: 100%;
+            border-radius: 5%;
+        }
+
+        .projects__container {
+            border: 2px solid variaveis.$corSecundaria;
+            border-radius: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 380px;
+            padding: 24px;
+            width: 100%;
+
+            h1 {
+                text-align: center;
+                font-weight: 500;
+                padding: 16px;
+            }
+
+            p {
+                padding-top: 16px;
+                font-weight: 500;
+                font-size: 16px;
+            }
+        }
+
+        .projects__links {
+            display: flex;
+            padding-top: 32px;
+            
+            a {
+                border: 2px solid variaveis.$corSecundaria;
+                color: variaveis.$corText;
+                border-radius: 5px;
+                margin: 8px;
+                padding: 8px;
+                transition: all 0.5s ease;
+                
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+@media screen and (max-width: 1023px) {
+    .container {
+        max-width: 80%;
+    }
+
+    .profile {
+        display: block;
+        position: relative;
+        padding: 16px;
+        margin-top: 16px;
+
+        &:hover {
+            transform: scale(1.0);
+        }
+    
+        .profile__network {
+            padding: 8px;
+        
+            .profile__avatar {
+                margin: 0 auto;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+        }
+    
+        .profile__container {
+            padding: 8px;
+            
+            h2 {
+                padding-top: 32px;
+                padding-bottom: 16px;
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+    nav {
+        justify-content: center;
+        display: flex;
+        padding: 24px;
+    }
+    
+    .container-apresentacao {
+        display: flex;
+    
+        .apresentacao {
+            position: absolute;
+            padding: 42px;
+        }
+    }
+
+    .container {
+        max-width: 95%;
+    }
+
+
+
+    .profile {
+        display: block;
+        position: relative;
+        padding: 16px;
+        margin-top: 16px;
+        margin-bottom: 32px;
+
+        &:hover {
+            transform: scale(1.0);
+        }
+    
+        .profile__network {
+            padding: 8px;
+        
+            .profile__avatar {
+                margin: 0 auto;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                display: flex;
+            }
+        }
+    
+        .profile__container {
+            padding: 8px;
+            
+            h2 {
+                padding-top: 32px;
+                padding-bottom: 16px;
+            }
+        }
+
+        .profile__skills {
+            display: block;
+            box-shadow: 2px 2px 16px 0px rgba(0, 0, 0, 0.1);
+            
+            .hard__skills,
+            .soft__skills {
+                margin: 16px;
+            }
+        
+            ul {
+                li {
+                    font-size: 16px;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+
+
+    .projects {
+        margin-top: 30px;
+        
+        .projects__logo {
+            display: block;
+    
+            .projects__container {
+                margin-bottom: 24px;
+            }
+    
+            .projects__links {
+                
+                a {
+                    transition: all 0.5s ease;
+                    
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+
+
+}
